@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.zip
+tests/*.png
+runtime-data/
+backups/
+x-art-log-*.json
+x-art-backup-*.json
+.env
+.env.*
+*.pem
+*.key
+*.crx
+.DS_Store
+Thumbs.db

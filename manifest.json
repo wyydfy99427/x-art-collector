@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "X Art Collector · 画师原图收藏",
+  "version": "0.1.3",
+  "description": "按画师收藏 X 原图，支持历史扫描、每日追踪、去重和失败重试。",
+  "minimum_chrome_version": "127",
+  "permissions": ["storage", "downloads", "offscreen", "alarms"],
+  "host_permissions": ["https://x.com/*", "https://twitter.com/*", "https://pbs.twimg.com/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "X Art Collector", "default_popup": "popup.html" },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["core.js", "scanner.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ]
+}
